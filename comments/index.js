@@ -15,7 +15,6 @@ app.get("/posts/:id/comments", (req, res) => {
 app.post("/posts/:id/comments", (req, res) => {
   const commentId = randomBytes(4).toString("hex");
   const comments = commentsByPostId[req.params.id] || [];
-
   comments.push({ id: commentId, content: req.body.content });
   commentsByPostId[req.params.id] = comments;
 
