@@ -6,9 +6,9 @@ app.use(express.json());
 
 app.post("/events", async (req, res) => {
   const { body: event } = req;
-  await axios.post("http://localhost:4000/events", event);
-  await axios.post("http://localhost:4001/events", event);
-  await axios.post("http://localhost:4002/events", event);
+  await axios.post("http://localhost:4000/events", event); // posts
+  await axios.post("http://localhost:4001/events", event); // comments
+  await axios.post("http://localhost:4002/events", event); // query
 
   res.send({ status: "OK" });
 });
