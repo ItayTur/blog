@@ -22,7 +22,7 @@ app.post("/events", async (req, res) => {
           content: data.content,
         },
       })
-      .catch((e) => console.log("error"));
+      .catch((e) => console.log("error", error.message));
   }
 });
 

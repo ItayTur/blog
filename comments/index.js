@@ -50,15 +50,17 @@ app.post("/events", async (req, res) => {
     });
     comment.status = status;
 
-    await axios.post("http://localhost:4005/events", {
-      type: "CommentUpdated",
-      data: {
-        id,
-        postId,
-        status,
-        content,
-      },
-    });
+    await axios
+      .post("http://localhost:4005/events", {
+        type: "CommentUpdated",
+        data: {
+          id,
+          postId,
+          status,
+          content,
+        },
+      })
+      .catch((e) => console.log("error: ", error.message));
   }
 
   res.send({});
