@@ -10,17 +10,17 @@ app.post("/events", async (req, res) => {
   const { body: event } = req;
   events.push(event);
   await axios
-    .post("http://localhost:4000/events", event)
+    .post("http://posts-clusterip-srv:4000/events", event)
     .catch((e) => console.log("error on event posts")); // posts
-  await axios
-    .post("http://localhost:4001/events", event)
-    .catch((e) => console.log("error on event comments")); // comments
-  await axios
-    .post("http://localhost:4002/events", event)
-    .catch((e) => console.log("error on event query")); // query
-  await axios
-    .post("http://localhost:4003/events", event)
-    .catch((e) => console.log("error on event moderation")); // moderation
+  // await axios
+  //   .post("http://localhost:4001/events", event)
+  //   .catch((e) => console.log("error on event comments")); // comments
+  // await axios
+  //   .post("http://localhost:4002/events", event)
+  //   .catch((e) => console.log("error on event query")); // query
+  // await axios
+  //   .post("http://localhost:4003/events", event)
+  //   .catch((e) => console.log("error on event moderation")); // moderation
 
   res.send({ status: "OK" });
 });
