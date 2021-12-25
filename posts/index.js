@@ -25,7 +25,7 @@ app.post("/posts", async (req, res) => {
       type: "PostCreated",
       data: newPost,
     })
-    .catch((e) => console.log("error"));
+    .catch((e) => console.log("error: ", e));
   res.status(201).send(posts[postId]);
 });
 
